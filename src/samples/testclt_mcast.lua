@@ -4,7 +4,7 @@
 -- from it.
 --
 -- Gunnar Zötl <gz@tset.de>, 2013-2015
--- Do what you will with this.
+-- Released under the terms of the MIT license. See file LICENSE for details.
 
 if arg[1] == '6' then
 	addr = 'ff01::1'

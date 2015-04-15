@@ -4,7 +4,7 @@
 -- how to determine whether a client has disconnected.
 --
 -- Gunnar Zötl <gz@tset.de>, 2014-2015
--- Do what you will with this.
+-- Released under the terms of the MIT license. See file LICENSE for details.
 
 addr = "./testsocket"
 

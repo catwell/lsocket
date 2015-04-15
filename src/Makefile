@@ -1,7 +1,7 @@
 # lsocket Makefile, works on Linux and Mac OS X, everywhere else roll your own.
 #
 # Gunnar Zötl <gz@tset.de>, 2013-2015.
-# Released under MIT/X11 license. See file LICENSE for details.
+# Released under the terms of the MIT license. See file LICENSE for details.
 
 # swap the comments on the next 2 lines if you want the async resolver to be built and installed also
 ALL=lsocket.so

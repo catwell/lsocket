@@ -4,7 +4,7 @@
 -- through it, and how to determine whether the server has terminated.
 --
 -- Gunnar Zötl <gz@tset.de>, 2013-2015
--- Do what you will with this.
+-- Released under the terms of the MIT license. See file LICENSE for details.
 
 addr = "./testsocket"
 

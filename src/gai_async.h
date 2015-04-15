@@ -3,7 +3,7 @@
  * a simple wrapper for getaddrinfo using pthreads to make it asynchronous.
  *
  * Gunnar Zötl <gz@tset.de>, 2013-2015
- * Released under MIT/X11 license. See file LICENSE for details.
+ * Released under the terms of the MIT license. See file LICENSE for details.
  * 
  * Usage:
  * 

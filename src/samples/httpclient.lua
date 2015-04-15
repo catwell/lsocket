@@ -1,7 +1,7 @@
 -- example for lsocket: a simple http client.
 --
 -- Gunnar Zötl <gz@tset.de>, 2013-2015
--- Do what you will with this.
+-- Released under the terms of the MIT license. See file LICENSE for details.
 
 ls = require "lsocket"
 
