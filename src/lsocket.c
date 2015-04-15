@@ -130,6 +130,7 @@ static int lsocket_islSocket(lua_State *L, int index)
 static lSocket* lsocket_pushlSocket(lua_State *L)
 {
 	lSocket *sock = (lSocket*) lua_newuserdata(L, sizeof(lSocket));
+	sock->sockfd = -1;
 	luaL_getmetatable(L, LSOCKET);
 	lua_setmetatable(L, -2);
 	return sock;
@@ -1123,6 +1124,10 @@ static int _table2fd_set(lua_State *L, int idx, fd_set *s)
 	lua_rawgeti(L, idx, i++);
 	while (lsocket_islSocket(L, -1)) {
 		lSocket *sock = lsocket_checklSocket(L, -1);
+		if (sock->sockfd > FD_SETSIZE) {
+			lua_pop(L, 1);
+			return luaL_error(L, "bad argument to 'select' (socket file descriptor too big)");
+		}
 		if (sock->sockfd >= 0) {
 			FD_SET(sock->sockfd, s);
 			if (sock->sockfd > maxfd) maxfd = sock->sockfd;
