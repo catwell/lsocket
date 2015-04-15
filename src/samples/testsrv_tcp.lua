@@ -3,7 +3,7 @@
 -- how to maintain multiple connections in parallel, and how to determine
 -- whether a client has disconnected.
 --
--- Gunnar Zötl <gz@tset.de>, 2013-03
+-- Gunnar Zötl <gz@tset.de>, 2013-2015
 -- Do what you will with this.
 
 if arg[1] == '6' then

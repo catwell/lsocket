@@ -2,7 +2,7 @@
 -- this is extremely simple, just echoes back the request headers and
 -- request details
 --
--- Gunnar Zötl <gz@tset.de>, 2013-03
+-- Gunnar Zötl <gz@tset.de>, 2013-2015
 -- Released under MIT/X11 license. See file LICENSE for details.
 
 httpd = require "rshttpd"

@@ -2,7 +2,7 @@
 
 	An example for lsocket
 
-	Gunnar Zötl <gz@tset.de>, 2013-03
+	Gunnar Zötl <gz@tset.de>, 2013-2015
 	Released under MIT/X11 license. See file LICENSE for details.
 
 	use:
@@ -466,8 +466,8 @@ function httpd_methods:step(tmout)
 			elseif self.stillalive[s] then
 				self.stillalive[s] = nil
 				remove_from_queue(self.rsocks, s)
-				begin_request(self, s)
-			else
+				begin_request(self, s
+)			else
 				continue_request(self, s)
 			end
 		end

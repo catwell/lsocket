@@ -1,4 +1,7 @@
 # lsocket Makefile, works on Linux and Mac OS X, everywhere else roll your own.
+#
+# Gunnar Zötl <gz@tset.de>, 2013-2015.
+# Released under MIT/X11 license. See file LICENSE for details.
 
 ifdef DEBUG
 	DBG=-g

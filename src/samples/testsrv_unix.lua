@@ -3,7 +3,7 @@
 -- connections, how to maintain multiple connections in parallel, and
 -- how to determine whether a client has disconnected.
 --
--- Gunnar Zötl <gz@tset.de>, 2014-08
+-- Gunnar Zötl <gz@tset.de>, 2014-2015
 -- Do what you will with this.
 
 addr = "./testsocket"

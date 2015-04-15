@@ -1,5 +1,12 @@
 README_ARESOLVER
 
+    A library that provides asynchronous dns lookups.
+
+   Author: Gunnar Zötl , 2013-2015.
+   Released under MIT/X11 license. See file LICENSE for details.
+
+  Introduction
+
    Since version 1.2, lsocket comes with an additional library to do
    asynchronous dns lookups. It works by spawning a separate thread for
    each dns lookup and providing functions to check for completion and

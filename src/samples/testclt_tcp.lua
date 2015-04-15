@@ -3,7 +3,7 @@
 -- Demonstrates how to set up a tcp client socket and communicate through
 -- it, and how to determine whether the server has terminated.
 --
--- Gunnar Zötl <gz@tset.de>, 2013-03
+-- Gunnar Zötl <gz@tset.de>, 2013-2015
 -- Do what you will with this.
 
 if arg[1] == '6' then

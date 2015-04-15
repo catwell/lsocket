@@ -4,7 +4,7 @@ lsocket
 
    A library that provides network programming support for Lua.
 
-   Author: Gunnar Zötl , 2013-2014.
+   Author: Gunnar Zötl , 2013-2015.
    Released under MIT/X11 license. See file LICENSE for details.
 
 Introduction

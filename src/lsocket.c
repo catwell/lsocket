@@ -41,7 +41,7 @@
 #include "lua.h"
 #include "lauxlib.h"
 
-#define LSOCKET_VERSION "1.3"
+#define LSOCKET_VERSION "1.3.1"
 
 #define LSOCKET "socket"
 #define TOSTRING_BUFSIZ 64
@@ -599,7 +599,7 @@ static void _push_sockname(lua_State *L, struct sockaddr *sa, socklen_t slen)
 	lua_newtable(L);
 	if (sa->sa_family != AF_UNIX) {
 		lua_pushliteral(L, "port");
-		lua_pushnumber(L, _portnumber(sa));
+		lua_pushinteger(L, _portnumber(sa));
 		lua_rawset(L, -3);
 	}
 	lua_pushliteral(L, "family");
@@ -649,7 +649,7 @@ static int lsocket_sock_info(lua_State *L)
 		lua_newtable(L);
 
 		lua_pushliteral(L, "fd");
-		lua_pushnumber(L, sock->sockfd);
+		lua_pushinteger(L, sock->sockfd);
 		lua_rawset(L, -3);
 
 		lua_pushliteral(L, "family");
@@ -737,7 +737,7 @@ static int lsocket_sock_status(lua_State *L)
 static int lsocket_sock_getfd(lua_State *L)
 {
 	lSocket *sock = lsocket_checklSocket(L, 1);
-	lua_pushnumber(L, sock->sockfd);
+	lua_pushinteger(L, sock->sockfd);
 	return 1;
 }
 
@@ -838,7 +838,7 @@ static int lsocket_sock_accept(lua_State *L)
 		return lsocket_error(L, strerror(errno));
 	if (sa->sa_family != AF_UNIX) {
 		lua_pushstring(L, _addr2string(sa, slen, buf, SOCKADDR_BUFSIZ));
-		lua_pushnumber(L, _portnumber(sa));
+		lua_pushinteger(L, _portnumber(sa));
 	} else {
 		lua_pushnil(L);
 		lua_pushnil(L);
@@ -869,7 +869,7 @@ static int lsocket_sock_recv(lua_State *L)
 	lSocket *sock = lsocket_checklSocket(L, 1);
 
 	uint32_t howmuch = luaL_optnumber(L, 2, READER_BUFSIZ);
-	if (lua_tonumber(L, 2) > UINT_MAX)
+	if (lua_tointeger(L, 2) > UINT_MAX)
 		return luaL_error(L, "bad argument #1 to 'recv' (invalid number)");
 	
 	char *buf = malloc(howmuch);
@@ -913,7 +913,7 @@ static int lsocket_sock_recvfrom(lua_State *L)
 {
 	lSocket *sock = lsocket_checklSocket(L, 1);
 	uint32_t howmuch = luaL_optnumber(L, 2, READER_BUFSIZ);
-	if (lua_tonumber(L, 2) > UINT_MAX)
+	if (lua_tointeger(L, 2) > UINT_MAX)
 		return luaL_error(L, "bad argument #1 to 'recvfrom' (invalid number)");
 	
 	char sabuf[SOCKADDR_BUFSIZ];
@@ -938,7 +938,7 @@ static int lsocket_sock_recvfrom(lua_State *L)
 			lua_pushstring(L, s);
 		else
 			return lsocket_error(L, strerror(errno)); /* should not happen */
-		lua_pushnumber(L, _portnumber(sa));
+		lua_pushinteger(L, _portnumber(sa));
 		return 3;
 	}
 	return 1;
@@ -989,7 +989,7 @@ static int lsocket_sock_send(lua_State *L)
 		else
 			return lsocket_error(L, strerror(errno));
 	}
-	lua_pushnumber(L, nwr);
+	lua_pushinteger(L, nwr);
 	return 1;
 }
 
@@ -1049,7 +1049,7 @@ static int lsocket_sock_sendto(lua_State *L)
 		else
 			return lsocket_error(L, strerror(errno));
 	}
-	lua_pushnumber(L, nwr);
+	lua_pushinteger(L, nwr);
 	return 1;
 }
 
