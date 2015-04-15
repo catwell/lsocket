@@ -34,6 +34,7 @@ server:addhandler("post", function(rq, header, data)
 		"<h2>Request</h2>",
 		tablify(rq),
 		"<b>data:</b><br>", data, "<br>",
+		"<br>" .. _VERSION .. "<br>",
 		"</pre></body></html>"}
 	return "200", res, { ["X-MyCustomHeader"] = "MyValue" }
 end)
@@ -51,6 +52,7 @@ server:addhandler("get", function(rq, header)
 			"<h2>Request</h2>",
 			tablify(rq)}
 	end
+	res = res .. "<br>" .. _VERSION .. "<br>"
 	res = res .. "</pre></body></html>"
 	return "200", res, { ["X-MyCustomHeader"] = "MyValue" }
 end)
