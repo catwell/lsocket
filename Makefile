@@ -1,21 +1,23 @@
 ### add your documentation files here
 
-DOCFILES=src/doc/README
+DOCFILES=README README_ARESOLVER CHANGELOG
 
 ### no user servicable parts below
 
 ROCK=$(shell basename src/*.rockspec .rockspec)
 
 all:
-	@echo targets are pack and doc
+	@echo targets are pack and html
 	@echo to build the module, enter src and make there.
 
-# make text documentation from html documentation
+# make html documentation from text (markdown) documentation
 
-doc: $(DOCFILES)
+html: $(DOCFILES:%=html/%.html)
 
-src/doc/%:	html/%.html
-	lynx -dump $< > $@
+html/%.html: src/doc/% html/header html/footer
+	sed -e"s/%NAME%/`basename $<`/" < html/header > $@
+	lunamark -X notes,definition_lists,pandoc_title_blocks $< >> $@
+	sed -e"s/%NAME%/`basename $<`/" < html/footer >> $@
 
 # build archive for luarocks
 

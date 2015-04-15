@@ -15,7 +15,10 @@
 
 	<h3>What's new in version 1.4</h3>
 	<ul>
-		<li>lua 5.3 compatibility</li>
+		<li>Lua 5.3 compatibility (or rather, some cleanup in the number handling department)</li>
+		<li>socket fd's are checked against FD_SETSIZE now in select()</li>
+		<li>changed build type to make</li>
+		<li>converted all documentation to markdown</li>
 	</ul>
 
 	<h3>What's new in version 1.3</h3>
@@ -75,16 +78,21 @@
 	<dl>
 		<dt><a href="http://www.tset.de/lsocket/README.html">README</a></dt>
 			<dd>lsocket README file</dd>
+		<dt><a href="http://www.tset.de/lsocket/README_ARESOLVER.html">README_ARESOLVER</a></dt>
+			<dd>README for the experimental async_resolver library</dd>
+		<dt><a href="http://www.tset.de/lsocket/CHANGELOG.html">CHANGELOG</a></dt>
+			<dd>what has changed from version to version.</dd>
 	</dl>
 
 	<h2>Download</h2>
-	<p>You can get lsocket-1.3 by clicking on <a href="http://www.tset.de/downloads/lsocket-1.3-1.tar.gz">this link</a>,
+	<p>You can get lsocket-1.4 by clicking on <a href="http://www.tset.de/downloads/lsocket-1.4-1.tar.gz">this link</a>,
 	or eventually by installing it from the luarocks repository. If you fetch it from here, the included
 	<a href="http://www.tset.de/lsocket/README.html">README</a> gives hints on how to build it.</p>
 
 	<h2>License</h2>
-	<p>The lsocket module and all accompanying documentation and additional source code is released under the MIT/X11 license.</p>
-	<pre>Copyright (c) 2013-2014 Gunnar Zötl &lt;gz@tset.de&gt;
+	<p>The lsocket module and all accompanying documentation and additional source code is released under the terms of the MIT license.</p>
+	<pre>
+Copyright (c) 2013-2015 Gunnar Zötl &lt;gz@tset.de&gt;
 
 Permission is hereby granted, free of charge, to any person
 obtaining a copy of this software and associated documentation

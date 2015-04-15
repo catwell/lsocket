@@ -5,6 +5,8 @@
 * Lua 5.3 compatibility (or rather, some cleanup in the number handling
   department)
 * socket fd's are checked against FD_SETSIZE now in select()
+* changed build type to make
+* converted all documentation to markdown
 
 ## Version 1.3 ##
 

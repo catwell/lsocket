@@ -4,8 +4,8 @@
 # Released under MIT/X11 license. See file LICENSE for details.
 
 # swap the comments on the next 2 lines if you want the async resolver to be built and installed also
-#ALL=lsocket.so
-ALL=lsocket.so async_resolver.so
+ALL=lsocket.so
+#ALL=lsocket.so async_resolver.so
 
 ifdef DEBUG
 	DBG=-g
