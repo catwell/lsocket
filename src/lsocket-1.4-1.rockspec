@@ -1,7 +1,7 @@
 package = "lsocket"
-version = "1.3.1-1"
+version = "1.4-1"
 source = {
-	url = "http://www.tset.de/downloads/lsocket-1.3.1-1.tar.gz"
+	url = "http://www.tset.de/downloads/lsocket-1.4-1.tar.gz"
 }
 description = {
 	summary = "simple and easy socket support for lua.",

@@ -41,7 +41,7 @@
 #include "lua.h"
 #include "lauxlib.h"
 
-#define LSOCKET_VERSION "1.3.1"
+#define LSOCKET_VERSION "1.4"
 
 #define LSOCKET "socket"
 #define TOSTRING_BUFSIZ 64
@@ -883,7 +883,7 @@ static int lsocket_sock_recv(lua_State *L)
 			return lsocket_error(L, strerror(errno));
 	} else if (nrd == 0) {
 		lua_pushnil(L);
-	} else {
+	}e lse {
 		lua_pushlstring(L, buf, nrd);
 		free(buf);
 	}
