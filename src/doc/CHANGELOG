@@ -7,6 +7,7 @@
 * socket fd's are checked against FD_SETSIZE now in select()
 * changed build type to make
 * converted all documentation to markdown
+* fixed bug: send and sendto would not correctly return false on timeout (patch by 云风)
 
 ## Version 1.3 ##
 

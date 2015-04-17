@@ -16,7 +16,7 @@ html: $(DOCFILES:%=html/%.html)
 
 html/%.html: src/doc/% html/header html/footer
 	sed -e"s/%NAME%/`basename $<`/" < html/header > $@
-	lunamark -X notes,definition_lists,pandoc_title_blocks $< >> $@
+	multimarkdown $< >> $@
 	sed -e"s/%NAME%/`basename $<`/" < html/footer >> $@
 
 # build archive for luarocks

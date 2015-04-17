@@ -881,9 +881,9 @@ static int lsocket_sock_recv(lua_State *L)
 			lua_pushboolean(L, 0);
 		else
 			return lsocket_error(L, strerror(errno));
-	} else if (nrd == 0)
+	} else if (nrd == 0) {
 		lua_pushnil(L);
-	else {
+	} else {
 		lua_pushlstring(L, buf, nrd);
 		free(buf);
 	}
@@ -928,9 +928,9 @@ static int lsocket_sock_recvfrom(lua_State *L)
 			lua_pushboolean(L, 0);
 		else
 			return lsocket_error(L, strerror(errno));
-	} else if (nrd == 0)
+	} else if (nrd == 0) {
 		lua_pushnil(L); /* not possible for udp, so should not get here */
-	else {
+	} else {
 		lua_pushlstring(L, buf, nrd);
 		free(buf);
 		char ipbuf[SOCKADDR_BUFSIZ];
@@ -989,8 +989,9 @@ static int lsocket_sock_send(lua_State *L)
 			lua_pushboolean(L, 0);
 		else
 			return lsocket_error(L, strerror(errno));
+	} else {
+		lua_pushinteger(L, nwr);
 	}
-	lua_pushinteger(L, nwr);
 	return 1;
 }
 
@@ -1049,8 +1050,9 @@ static int lsocket_sock_sendto(lua_State *L)
 			lua_pushboolean(L, 0);
 		else
 			return lsocket_error(L, strerror(errno));
+	} else {
+		lua_pushinteger(L, nwr);
 	}
-	lua_pushinteger(L, nwr);
 	return 1;
 }
 
