@@ -883,7 +883,7 @@ static int lsocket_sock_recv(lua_State *L)
 			return lsocket_error(L, strerror(errno));
 	} else if (nrd == 0) {
 		lua_pushnil(L);
-	}e lse {
+	} else {
 		lua_pushlstring(L, buf, nrd);
 		free(buf);
 	}

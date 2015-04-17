@@ -4,7 +4,7 @@
 
 A library that provides asynchronous dns lookups.
 
-Author: Gunnar Zötl <gz@tset.de>, 2013-2015.
+Author: Gunnar Zötl <gz@tset.de>, 2013-2015.  
 Released under the terms of the MIT license. See file LICENSE for details.
 
 ## Introduction ##

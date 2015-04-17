@@ -21,7 +21,7 @@ html/%.html: src/doc/% html/header html/footer
 
 # build archive for luarocks
 
-pack: doc
+pack:
 	cd src && make clean
 	cd src && luarocks lint $(ROCK).rockspec
 	mkdir $(ROCK)
