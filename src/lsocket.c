@@ -41,7 +41,7 @@
 #include "lua.h"
 #include "lauxlib.h"
 
-#define LSOCKET_VERSION "1.4"
+#define LSOCKET_VERSION "1.4.1"
 
 #define LSOCKET "socket"
 #define TOSTRING_BUFSIZ 64
@@ -176,11 +176,7 @@ static int lsocket_sock__gc(lua_State *L)
 static int lsocket_sock__toString(lua_State *L)
 {
 	lSocket *sock = lsocket_checklSocket(L, 1);
-	char buf[TOSTRING_BUFSIZ];
-	if (snprintf(buf, TOSTRING_BUFSIZ, "%s: %p", LSOCKET, sock) >= TOSTRING_BUFSIZ)
-		return luaL_error(L, "Whoopsie... the string representation seems to be too long.");
-		/* this should not happen, just to be sure! */
-	lua_pushstring(L, buf);
+	lua_pushfstring(L, "%s: %p", LSOCKET, sock);
 	return 1;
 }
 
@@ -885,8 +881,8 @@ static int lsocket_sock_recv(lua_State *L)
 		lua_pushnil(L);
 	} else {
 		lua_pushlstring(L, buf, nrd);
-		free(buf);
 	}
+	free(buf);
 	return 1;
 }
 
@@ -930,6 +926,7 @@ static int lsocket_sock_recvfrom(lua_State *L)
 			return lsocket_error(L, strerror(errno));
 	} else if (nrd == 0) {
 		lua_pushnil(L); /* not possible for udp, so should not get here */
+		free(buf);
 	} else {
 		lua_pushlstring(L, buf, nrd);
 		free(buf);

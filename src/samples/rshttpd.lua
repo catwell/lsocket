@@ -166,7 +166,7 @@ end
 -- insert socket into appropriate table and then return to main loop.
 -- It will resume here when the socket becomes ready for the operation
 -- we want to perform
-function waitfor(self, what, sock)
+local function waitfor(self, what, sock)
 	local tbl = self[what]
 	local tid = add_to_queue(tbl, sock)
 	self.requests[sock] = coroutine.running()
