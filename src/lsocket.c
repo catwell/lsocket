@@ -64,10 +64,10 @@
 #define luaL_newlib(L,funcs) lua_newtable(L); luaL_register(L, NULL, funcs)
 #define luaL_setfuncs(L,funcs,x) luaL_register(L, NULL, funcs)
 
-static void myL_pushresultsize(luaL_Buffer &lbp, size_t sz)
+static void myL_pushresultsize(luaL_Buffer *lbp, size_t sz)
 {
-	luaL_addsize(&lbuf, nrd);
-	luaL_pushresult(&lbuf);
+	luaL_addsize(lbp, sz);
+	luaL_pushresult(lbp);
 }
 
 #define luaL_pushresultsize(lbp, sz) myL_pushresultsize(lbp, sz)
@@ -906,10 +906,8 @@ static int lsocket_sock_recv(lua_State *L)
 		if (howmuch > LUAL_BUFFERSIZE)
 			lua_pushlstring(L, buf, nrd); 
 		else
-#else
-		luaL_pushresultsize(&lbuf, nrd);
 #endif
-
+		luaL_pushresultsize(&lbuf, nrd);
 	}
 	return 1;
 }
@@ -975,9 +973,8 @@ static int lsocket_sock_recvfrom(lua_State *L)
 		if (howmuch > LUAL_BUFFERSIZE)
 			lua_pushlstring(L, buf, nrd); 
 		else
-#else
-		luaL_pushresultsize(&lbuf, nrd);
 #endif
+		luaL_pushresultsize(&lbuf, nrd);
 
 		char ipbuf[SOCKADDR_BUFSIZ];
 		const char *s = _addr2string(sa, slen, ipbuf, SOCKADDR_BUFSIZ);

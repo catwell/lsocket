@@ -1,5 +1,10 @@
 # CHANGELOG #
 
+## Version 1.4.1 ##
+
+* Fixed memory leak discovered by Cloud Wu
+* proper tostring methods.
+
 ## Version 1.4 ##
 
 * Lua 5.3 compatibility (or rather, some cleanup in the number handling
